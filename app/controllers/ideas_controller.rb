@@ -2,7 +2,7 @@ class IdeasController < ApplicationController
   # GET /ideas
   # GET /ideas.json
   def index
-    @ideas = Idea.all
+    @ideas = Idea.where(active: true)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -73,7 +73,8 @@ class IdeasController < ApplicationController
   # DELETE /ideas/1.json
   def destroy
     @idea = Idea.find(params[:id])
-    @idea.destroy
+    @idea.active = false
+    @idea.save
 
     respond_to do |format|
       format.html { redirect_to ideas_url }

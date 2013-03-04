@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130304075307) do
+ActiveRecord::Schema.define(:version => 20130304082307) do
 
   create_table "comments", :force => true do |t|
     t.integer  "commentable_id"
@@ -24,8 +24,9 @@ ActiveRecord::Schema.define(:version => 20130304075307) do
   create_table "ideas", :force => true do |t|
     t.string   "name"
     t.string   "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.boolean  "active",      :default => true
   end
 
   create_table "votes", :force => true do |t|
