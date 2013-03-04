@@ -80,4 +80,23 @@ class IdeasController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def vote
+    @idea = Idea.find(params[:id])
+    
+
+    if params[:up] == true 
+      score = 1
+    else  
+      score = -1
+    end
+
+
+    @idea.votes.create(score: score)
+    
+    respond_to do |format|
+      format.html { redirect_to ideas_path, notice: 'Added #{score} for #{@idea.name}'}
+      format.json { head :no_content }
+    end
+  end
 end

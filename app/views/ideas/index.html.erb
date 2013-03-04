@@ -4,6 +4,9 @@
   <tr>
     <th>Name</th>
     <th>Description</th>
+    <th>Cast</th>
+    <th>Sum</th>
+    <th></th>
     <th></th>
     <th></th>
     <th></th>
@@ -13,6 +16,10 @@
   <tr>
     <td><%= idea.name %></td>
     <td><%= idea.description %></td>
+    <td><%= idea.votes.count %></td>
+    <td><%= idea.votes.sum(:score) %></td>
+    <td><%= link_to 'Vote Up', vote_idea_path(idea, up: true),  method: :post %></td>
+    <td><%= link_to 'Vote Down', vote_idea_path(idea, up: false), method: :post %></td>
     <td><%= link_to 'Show', idea %></td>
     <td><%= link_to 'Edit', edit_idea_path(idea) %></td>
     <td><%= link_to 'Destroy', idea, method: :delete, data: { confirm: 'Are you sure?' } %></td>
