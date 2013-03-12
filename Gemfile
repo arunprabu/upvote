@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'airbrake'
 gem 'rails', '3.2.12'
 gem 'pg'
 gem 'jquery-rails'
